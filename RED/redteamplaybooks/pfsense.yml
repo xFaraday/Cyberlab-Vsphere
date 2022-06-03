@@ -1,0 +1,14 @@
+---
+- hosts: kali
+  tasks:
+        - name: transport pfsense binary
+          copy:
+                src: /root/pfsense-automator
+                dest: /opt/pfsense-automator
+                owner: root
+                group: root
+                mode: "u=rwx,g=rwx,o=rwx"
+        - name: run pfsense binary with default creds
+          shell: /opt/pfsense-automator http://172.31.0.2:80 --check-auth -u admin -p admin
+
+          2VVGkn

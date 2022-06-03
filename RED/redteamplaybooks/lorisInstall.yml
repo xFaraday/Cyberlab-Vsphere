@@ -1,0 +1,11 @@
+---
+- hosts: kali
+  tasks:
+        - name: Add Kali rolling release
+          shell: echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | tee /etc/apt/sources.list
+        - name: Update
+          apt:
+            update_cache: yes
+        - name: Install loris
+          apt:
+            name: foo
